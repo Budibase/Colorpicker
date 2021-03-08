@@ -4,10 +4,15 @@ export default function (node) {
   const mouseIsPressed = () => (mouseButtonIsPressed = true);
 
   function handleMouseMove(event) {
-    if (mouseButtonIsPressed) {
+    if (!mouseButtonIsPressed) return;
+    const { left, top, width, height } = node.getBoundingClientRect();
+    let x = event.clientX - left;
+    let y = event.clientY - top;
+
+    if (mouseIsInsideContainer(x, y, width, height)) {
       node.dispatchEvent(
         new CustomEvent("drag", {
-          detail: { mouseX: event.clientX, mouseY: event.clientY },
+          detail: { mouseX: x, mouseY: y },
         })
       );
     }
@@ -24,4 +29,8 @@ export default function (node) {
       window.removeEventListener("mousemove", handleMouseMove);
     },
   };
+}
+
+function mouseIsInsideContainer(x, y, width, height) {
+  return x > 0 && y > 0 && x < width && y < height;
 }

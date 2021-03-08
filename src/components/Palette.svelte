@@ -16,14 +16,10 @@
     paletteWidth = 0
 
   function handlePaletteChange({ mouseX, mouseY }) {
-    const { left, top } = palette.getBoundingClientRect()
-    let x = mouseX - left
-    let y = mouseY - top
-    if (x > 0 && y > 0 && x < paletteWidth && y < paletteHeight) {
-      let s = (x / paletteWidth) * 100
-      let v = 100 - (y / paletteHeight) * 100
-      dispatch("change", { s, v })
-    }
+    const { width, height } = palette.getBoundingClientRect()
+    const s = (mouseX / width) * 100
+    const v = 100 - (mouseY / height) * 100
+    dispatch("change", { s, v })
   }
 
   $: pickerX = (s * paletteWidth) / 100
