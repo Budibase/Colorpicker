@@ -1,23 +1,27 @@
-export default function(node) {
-  function handleMouseDown() {
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("mouseup", handleMouseUp)
-    node.dispatchEvent(new CustomEvent("dragstart"))
-  }
+export default function (node) {
+  let mouseButtonIsPressed = false;
+  const mouseNotPressed = () => (mouseButtonIsPressed = false);
+  const mouseIsPressed = () => (mouseButtonIsPressed = true);
 
   function handleMouseMove(event) {
-    node.dispatchEvent(
-      new CustomEvent("drag", {
-        detail: { mouseX: event.clientX, mouseY: event.clientY },
-      })
-    )
+    if (mouseButtonIsPressed) {
+      node.dispatchEvent(
+        new CustomEvent("drag", {
+          detail: { mouseX: event.clientX, mouseY: event.clientY },
+        })
+      );
+    }
   }
 
-  function handleMouseUp() {
-    window.removeEventListener("mousedown", handleMouseDown)
-    window.removeEventListener("mousemove", handleMouseMove)
-    node.dispatchEvent(new CustomEvent("dragend"))
-  }
+  window.addEventListener("mousedown", mouseIsPressed);
+  window.addEventListener("mouseup", mouseNotPressed);
+  window.addEventListener("mousemove", handleMouseMove);
 
-  node.addEventListener("mousedown", handleMouseDown)
+  return {
+    destroy() {
+      window.removeEventListener("mousedown", mouseIsPressed);
+      window.removeEventListener("mouseup", mouseNotPressed);
+      window.removeEventListener("mousemove", handleMouseMove);
+    },
+  };
 }
