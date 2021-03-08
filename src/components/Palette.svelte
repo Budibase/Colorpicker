@@ -16,9 +16,8 @@
     paletteWidth = 0
 
   function handlePaletteChange({ mouseX, mouseY }) {
-    const { width, height } = palette.getBoundingClientRect()
-    const s = (mouseX / width) * 100
-    const v = 100 - (mouseY / height) * 100
+    const s = (mouseX / paletteWidth) * 100
+    const v = 100 - (mouseY / paletteHeight) * 100
     dispatch("change", { s, v })
   }
 
