@@ -1,0 +1,14 @@
+/scripts/regression-delayed-formater.js:17
+throw new Error('trace');
+^
+
+Error: trace
+    at-hack Object.<anonymous> (/scripts/regression-delayed-formater.js:r:c)
+    at-hack Module._compile (internal/modules/cjs/loader.js:r:c)
+    at-hack Object.Module._extensions..js (internal/modules/cjs/loader.js:r:c)
+    at-hack Module.load (internal/modules/cjs/loader.js:r:c)
+    at-hack tryModuleLoad (internal/modules/cjs/loader.js:r:c)
+    at-hack Function.Module._load (internal/modules/cjs/loader.js:r:c)
+    at-hack Function.Module.runMain (internal/modules/cjs/loader.js:r:c)
+    at-hack startup (internal/bootstrap/node.js:r:c)
+    at-hack bootstrapNodeJSCore (internal/bootstrap/node.js:r:c)

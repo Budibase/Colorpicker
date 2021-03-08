@@ -1,0 +1,22 @@
+/scripts/simple-fs-read.js:10
+  throw new Error('trace');
+  ^
+
+Error: trace
+    at callback (/scripts/simple-fs-read.js:r:c)
+    at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:r:c)
+    at ReadFileContext.close (internal/fs/read_file_context.js:r:c)
+    at FSReqCallback.readFileAfterRead [as oncomplete] (internal/fs/read_file_context.js:r:c)
+    at ReadFileContext.read (internal/fs/read_file_context.js:r:c)
+    at FSReqCallback.readFileAfterStat [as oncomplete] (fs.js:r:c)
+    at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:r:c)
+    at Object.readFile (fs.js:r:c)
+    at Object.<anonymous> (/scripts/simple-fs-read.js:r:c)
+    at Module._compile (internal/modules/cjs/loader.js:r:c)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:r:c)
+    at Module.load (internal/modules/cjs/loader.js:r:c)
+    at tryModuleLoad (internal/modules/cjs/loader.js:r:c)
+    at Function.Module._load (internal/modules/cjs/loader.js:r:c)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:r:c)
+    at startup (internal/bootstrap/node.js:r:c)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:r:c)

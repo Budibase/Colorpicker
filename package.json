@@ -1,0 +1,26 @@
+{
+  "name": "Colorpicker",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Budibase/Colorpicker.git"
+  },
+  "author": "Keviin Åberg Kultalahti <kevin.aberg@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup-plugin-svelte-hot": "^1.0.0-3",
+    "svelte": "^3.35.0",
+    "svench": "^0.2.0-8",
+    "vite": "^2.0.5"
+  },
+  "bugs": {
+    "url": "https://github.com/Budibase/Colorpicker/issues"
+  },
+  "homepage": "https://github.com/Budibase/Colorpicker#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "description": ""
+}
