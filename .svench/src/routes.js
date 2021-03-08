@@ -1,31 +1,5 @@
 const f /* files */ = [
   { // f[0]
-    path: "/Hi",
-    import: () => import("/Users/kevinabergkultalahti/Workspace/Contracting/Budibase/Colorpicker/src/Hi.svench"),
-    "id": "17tdbvz",
-    "ext": ".svench",
-    "dir": "",
-    "segment": "Hi",
-    "sortKey": "Hi",
-    "title": "Hi",
-    "canonical": "/Hi",
-    "options": {},
-    "views": []
-  },
-  { // f[1]
-    path: "/hello",
-    import: () => import("/Users/kevinabergkultalahti/Workspace/Contracting/Budibase/Colorpicker/src/hello.md"),
-    "id": "1b4nqt2",
-    "ext": ".md",
-    "dir": "",
-    "segment": "hello",
-    "sortKey": "hello",
-    "title": "hello.md",
-    "canonical": "/hello",
-    "options": {},
-    "views": []
-  },
-  { // f[2]
     path: "/Colorpicker",
     import: () => import("/Users/kevinabergkultalahti/Workspace/Contracting/Budibase/Colorpicker/src/Colorpicker.svench"),
     "id": "pv3lm3",
@@ -39,6 +13,32 @@ const f /* files */ = [
     "views": [
       "colorpicker"
     ]
+  },
+  { // f[1]
+    path: "/Hi",
+    import: () => import("/Users/kevinabergkultalahti/Workspace/Contracting/Budibase/Colorpicker/src/Hi.svench"),
+    "id": "17tdbvz",
+    "ext": ".svench",
+    "dir": "",
+    "segment": "Hi",
+    "sortKey": "Hi",
+    "title": "Hi",
+    "canonical": "/Hi",
+    "options": {},
+    "views": []
+  },
+  { // f[2]
+    path: "/hello",
+    import: () => import("/Users/kevinabergkultalahti/Workspace/Contracting/Budibase/Colorpicker/src/hello.md"),
+    "id": "1b4nqt2",
+    "ext": ".md",
+    "dir": "",
+    "segment": "hello",
+    "sortKey": "hello",
+    "title": "hello.md",
+    "canonical": "/hello",
+    "options": {},
+    "views": []
   }
 ]
 
@@ -60,9 +60,9 @@ const tree = {
   "title": undefined,
   "canonical": undefined,
   children: [
-    f[2],
     f[0],
-    f[1]
+    f[1],
+    f[2]
   ]
 }
 

@@ -35,6 +35,36 @@
   $: style = `background: ${paletteGradient};`
 
   $: pickerStyle = `transform: translate(${pickerX - 8}px, ${pickerY - 8}px);`
+  
+  const clickDrag = node => {
+    let mouseIsPressedDown = false
+    const setMouseIsPressedDown = () => mouseIsPressedDown = true
+    const setMouseIsLetGo = () => mouseIsPressedDown = true
+    
+    node.addEventListener('mousedown', setMouseIsPressedDown)
+    node.addEventListener('mouseup', setMouseIsLetGo)
+    node.addEventListener('mousemove', handleMouseMove)
+    
+    
+    function handleMouseMove(event) {
+      if (mouseIsPressedDown) {
+      node.dispatchEvent(
+        new CustomEvent("clickAndDrag", {
+          detail: { mouseX: event.clientX, mouseY: event.clientY },
+        })
+      )
+      }
+    }
+    
+    return {
+      destroy() {
+        node.removeEventListener('mousedown', setMouseIsPressedDown)
+        node.removeEventListener('mouseup', setMouseIsLetGo)
+        node.removeEventListener('mousemove', handleMouseMove)
+      }
+    }
+  }
+  
 </script>
 
 <CheckedBackground width="100%">
@@ -42,10 +72,8 @@
     bind:this={palette}
     bind:clientHeight={paletteHeight}
     bind:clientWidth={paletteWidth}
-    on:click={event => handePaletteChange({
-        mouseX: event.clientX,
-        mouseY: event.clientY,
-      })}
+    use:clickDrag
+    on:clickAndDrag={console.log}
     class="palette"
     {style}>
     <div

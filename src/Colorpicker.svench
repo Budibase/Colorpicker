@@ -1,17 +1,10 @@
 <script>
   import { View } from "svench";
-  import Colorpicker from "./Component.svelte";
-
-  async function processFiles(files) {
-	console.log("Processing", files);
-	return files;
-  }
-
-  function handleFileTooLarge() {
-	alert("File too large.");
-  }
+  import Colorpicker from "./components/ColorPreview.svelte";
 </script>
 
 <View name="colorpicker">
-  <Colorpicker />
+  <Colorpicker
+    value="rgba(255, 255, 255, 0)"
+  />
 </View>

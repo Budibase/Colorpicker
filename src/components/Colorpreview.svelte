@@ -1,11 +1,12 @@
 <script>
+  import { fade } from "svelte/transition"
+  import { createEventDispatcher, beforeUpdate, onMount } from "svelte"
+  
   import Colorpicker from "./Colorpicker.svelte"
   import CheckedBackground from "./CheckedBackground.svelte"
-  import { createEventDispatcher, beforeUpdate, onMount } from "svelte"
 
-  import { buildStyle, debounce } from "../helpers.js"
-  import { fade } from "svelte/transition"
-  import { getColorFormat } from "../utils.js"
+  import { buildStyle, debounce } from "../helpers"
+  import { getColorFormat } from "../utils"
 
   export let value = "#3ec1d3ff"
   export let swatches = []
