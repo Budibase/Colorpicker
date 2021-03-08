@@ -1,19 +1,19 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte"
+  import Portal from "svelte-portal"
   import { fade } from "svelte/transition"
   import Swatch from "./Swatch.svelte"
   import CheckedBackground from "./CheckedBackground.svelte"
+  import Slider from "./Slider.svelte"
+  import Palette from "./Palette.svelte"
+  import ButtonGroup from "./ButtonGroup.svelte"
+  import Input from "./Input.svelte"
   import { buildStyle } from "../helpers"
   import {
     getColorFormat,
     convertToHSVA,
     convertHsvaToFormat,
   } from "../utils"
-  import Slider from "./Slider.svelte"
-  import Palette from "./Palette.svelte"
-  import ButtonGroup from "./ButtonGroup.svelte"
-  import Input from "./Input.svelte"
-  import Portal from "./Portal.svelte"
   import { keyevents } from "../actions"
 
   export let value = "#3ec1d3ff"

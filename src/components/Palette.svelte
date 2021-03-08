@@ -48,11 +48,11 @@
     
     function handleMouseMove(event) {
       if (mouseIsPressedDown) {
-      node.dispatchEvent(
-        new CustomEvent("clickAndDrag", {
-          detail: { mouseX: event.clientX, mouseY: event.clientY },
-        })
-      )
+        node.dispatchEvent(
+          new CustomEvent("clickAndDrag", {
+            detail: { mouseX: event.clientX, mouseY: event.clientY },
+          })
+        )
       }
     }
     
