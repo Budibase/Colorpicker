@@ -72,3 +72,7 @@ The remove swatch will be invoked when a user clicks the delete button that appe
 - If more than 12 have been passed the Colorpicker will display the first 12 and warn in the console.
 - An array of swatches can be passed to the Colorpicker to set up a dedicated panel of swatches. This will use provided swatches instead of locally stored swatches. Swatches added will still be saved to local storage.
 - You can disable swatch functionality by passing the `disableSwatches={true}` property to the Colorpicker.
+
+## Development
+
+To work with the Colorpicker locally clone, ` yarn``` and  `yarn svench`. Follow the URL in the terminal.
