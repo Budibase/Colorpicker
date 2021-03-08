@@ -1,0 +1,11 @@
+<script>
+  import { View } from "svench";
+  import Colorpicker from "./components/ColorPreview.svelte";
+</script>
+
+<View name="colorpicker">
+  <Colorpicker
+    value="rgba(255, 255, 255, 0)"
+    on:change={console.log}
+  />
+</View>

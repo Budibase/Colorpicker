@@ -1,19 +1,19 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte"
+  import Portal from "svelte-portal"
   import { fade } from "svelte/transition"
   import Swatch from "./Swatch.svelte"
   import CheckedBackground from "./CheckedBackground.svelte"
-  import { buildStyle } from "../helpers.js"
-  import {
-    getColorFormat,
-    convertToHSVA,
-    convertHsvaToFormat,
-  } from "../utils.js"
   import Slider from "./Slider.svelte"
   import Palette from "./Palette.svelte"
   import ButtonGroup from "./ButtonGroup.svelte"
   import Input from "./Input.svelte"
-  import Portal from "./Portal.svelte"
+  import { buildStyle } from "../helpers"
+  import {
+    getColorFormat,
+    convertToHSVA,
+    convertHsvaToFormat,
+  } from "../utils"
   import { keyevents } from "../actions"
 
   export let value = "#3ec1d3ff"
@@ -208,15 +208,13 @@
           <Slider
             type="hue"
             value={h}
-            on:change={hue => setHue(hue.detail)}
-            on:dragend={dispatchValue} />
+            on:change={hue => setHue(hue.detail)} />
 
           <CheckedBackground borderRadius="10px" backgroundSize="7px">
             <Slider
               type="alpha"
               value={a}
-              on:change={(alpha, isDrag) => setAlpha(alpha.detail, isDrag)}
-              on:dragend={dispatchValue} />
+              on:change={(alpha, isDrag) => setAlpha(alpha.detail, isDrag)} />
           </CheckedBackground>
 
         </div>

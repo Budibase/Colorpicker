@@ -15,15 +15,10 @@
   let paletteHeight,
     paletteWidth = 0
 
-  function handePaletteChange({ mouseX, mouseY }) {
-    const { left, top } = palette.getBoundingClientRect()
-    let x = mouseX - left
-    let y = mouseY - top
-    if (x > 0 && y > 0 && x < paletteWidth && y < paletteHeight) {
-      let s = (x / paletteWidth) * 100
-      let v = 100 - (y / paletteHeight) * 100
-      dispatch("change", { s, v })
-    }
+  function handlePaletteChange({ mouseX, mouseY }) {
+    const s = (mouseX / paletteWidth) * 100
+    const v = 100 - (mouseY / paletteHeight) * 100
+    dispatch("change", { s, v })
   }
 
   $: pickerX = (s * paletteWidth) / 100
@@ -34,7 +29,7 @@
   `
   $: style = `background: ${paletteGradient};`
 
-  $: pickerStyle = `transform: translate(${pickerX - 8}px, ${pickerY - 8}px);`
+  $: pickerStyle = `transform: translate(${pickerX - 8}px, ${pickerY - 8}px);`  
 </script>
 
 <CheckedBackground width="100%">
@@ -42,15 +37,11 @@
     bind:this={palette}
     bind:clientHeight={paletteHeight}
     bind:clientWidth={paletteWidth}
-    on:click={event => handePaletteChange({
-        mouseX: event.clientX,
-        mouseY: event.clientY,
-      })}
     class="palette"
+    use:drag
+    on:drag={event => handlePaletteChange(event.detail)}
     {style}>
     <div
-      use:drag
-      on:drag={event => handePaletteChange(event.detail)}
       class="picker"
       style={pickerStyle} />
   </div>
