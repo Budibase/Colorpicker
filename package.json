@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/Budibase/Colorpicker.git"
   },
-  "author": "Keviin Åberg Kultalahti <kevin.aberg@gmail.com>",
+  "author": "Budibase <hello@budibase.com>",
   "license": "MIT",
   "devDependencies": {
     "rollup-plugin-svelte-hot": "^1.0.0-3",
