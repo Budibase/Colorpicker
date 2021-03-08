@@ -208,15 +208,13 @@
           <Slider
             type="hue"
             value={h}
-            on:change={hue => setHue(hue.detail)}
-            on:dragend={dispatchValue} />
+            on:change={hue => setHue(hue.detail)} />
 
           <CheckedBackground borderRadius="10px" backgroundSize="7px">
             <Slider
               type="alpha"
               value={a}
-              on:change={(alpha, isDrag) => setAlpha(alpha.detail, isDrag)}
-              on:dragend={dispatchValue} />
+              on:change={(alpha, isDrag) => setAlpha(alpha.detail, isDrag)} />
           </CheckedBackground>
 
         </div>
